@@ -1,0 +1,174 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f7;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    padding: 2rem;
+}
+
+/* Grid Layout */
+.banner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.banner-section {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Banner Base Styles */
+.banner {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Banner Content Layout */
+.banner-content {
+    position: relative;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 2;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.6) 40%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+/* Typography */
+.banner h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.5s ease forwards;
+}
+
+.banner p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.5s ease 0.2s forwards;
+}
+
+/* CTA Button Styles */
+.cta-button {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.5s ease 0.4s forwards;
+}
+
+.cta-button:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Background Images */
+.grooming { background-image: url('../groom14.jpg'); }
+.kitchen { background-image: url('../kitchen6.jpg'); }
+.earpods { background-image: url('../orimo_2.jpg'); }
+.laptops { background-image: url('../pc10.jpg'); }
+.phone-accessories { background-image: url('../product_15.png'); }
+.woofers { background-image: url('../speaker_4.jpeg'); }
+.tv { background-image: url('../tv3.jpg'); }
+.watch { background-image: url('../watch_6.webp'); }
+
+/* Background Image Settings */
+[class*="banner"] {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Animation Keyframes */
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .banner-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .banner-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .banner {
+        height: 300px;
+    }
+
+    .banner-content {
+        padding: 1.5rem;
+    }
+
+    .banner h2 {
+        font-size: 1.75rem;
+    }
+
+    .banner p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .banner {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
